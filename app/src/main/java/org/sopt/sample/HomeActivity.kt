@@ -15,8 +15,8 @@ class HomeActivity: AppCompatActivity(){
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (intent.hasExtra("homeid") && intent.hasExtra("homembti")) {
-            binding.txtIntroname.setText("이름: " + intent.getStringExtra("homeid"))
-            binding.txtIntrombti.setText("MBTI: " + intent.getStringExtra("homembti"))
+            binding.txtIntroname.setText(getString(R.string.NAMETITLE) + intent.getStringExtra("homeid"))
+            binding.txtIntrombti.setText(getString(R.string.MBTITITLE) + intent.getStringExtra("homembti"))
         }
     }
 }

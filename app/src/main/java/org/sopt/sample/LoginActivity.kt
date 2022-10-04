@@ -27,10 +27,6 @@ class LoginActivity: AppCompatActivity(){
         }
 
         binding.btLogin.setOnClickListener(){
-            print(binding.etId.text)
-            print(binding.etPw.text)
-            print(id)
-            print(pw)
             if(binding.etId.text.toString() == id && binding.etPw.text.toString() == pw)
             {
                 Toast.makeText(this.applicationContext, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show();
@@ -39,7 +35,7 @@ class LoginActivity: AppCompatActivity(){
                 homeIntent.putExtra("homembti", mbti.toString())
                 startActivity(homeIntent)
             } else {
-                Toast.makeText(this.applicationContext, "존재하지 않는 계정입니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.applicationContext, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
             }
         }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/txt_sopt"
@@ -15,8 +15,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_title"
@@ -28,17 +27,16 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_sopt"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/txt_sopt" />
 
     <EditText
         android:id="@+id/et_id"
-        android:hint="아이디를 입력하세요"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"/>
+        android:hint="아이디를 입력하세요"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
     <TextView
         android:id="@+id/txt_pw_title"
@@ -50,35 +48,34 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_id"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     <EditText
         android:id="@+id/et_pw"
-        android:hint="비밀번호를 입력하세요"
-        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
+        android:hint="비밀번호를 입력하세요"
+        android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/txt_pw_title" />
 
     <Button
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
-        android:text="LOGIN"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="30dp"
-        android:layout_height="wrap_content"
+        android:text="LOGIN"
         app:layout_constraintTop_toBottomOf="@+id/et_pw" />
 
     <Button
         android:id="@+id/bt_signup"
         android:layout_width="match_parent"
-        android:text="SIGNUP"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
-        android:layout_height="wrap_content"
+        android:text="SIGNUP"
         app:layout_constraintTop_toBottomOf="@+id/bt_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
