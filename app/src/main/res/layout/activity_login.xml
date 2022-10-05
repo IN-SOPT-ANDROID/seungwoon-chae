@@ -60,22 +60,30 @@
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/txt_pw_title" />
 
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="bt_login,bt_signup"
+        app:flow_horizontalGap="12dp"
+        app:flow_horizontalStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/bt_login"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="30dp"
-        android:text="LOGIN"
-        app:layout_constraintTop_toBottomOf="@+id/et_pw" />
+        android:text="LOGIN" />
 
     <Button
         android:id="@+id/bt_signup"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="15dp"
-        android:text="SIGNUP"
-        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
+        android:text="SIGNUP" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_title"
+        android:id="@+id/txt_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -30,16 +30,16 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_signup" />
 
     <EditText
-        android:id="@+id/et_id"
+        android:id="@+id/et_id_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:hint="아이디를 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_new" />
 
     <TextView
-        android:id="@+id/txt_pw_title"
+        android:id="@+id/txt_pw_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -48,19 +48,19 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_id" />
+        app:layout_constraintTop_toBottomOf="@+id/et_id_new" />
 
     <EditText
-        android:id="@+id/et_pw"
+        android:id="@+id/et_pw_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:hint="비밀번호를 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_pw_title" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_pw_title_new" />
 
     <TextView
-        android:id="@+id/txt_mbti_title"
+        android:id="@+id/txt_mbti_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -69,16 +69,16 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pw" />
+        app:layout_constraintTop_toBottomOf="@+id/et_pw_new" />
 
     <EditText
-        android:id="@+id/et_mbti"
+        android:id="@+id/et_mbti_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:hint="MBTI를 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_mbti_title" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_mbti_title_new" />
 
     <Button
         android:id="@+id/bt_signupend"
@@ -87,6 +87,6 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:text="회원가입 완료"
-        app:layout_constraintTop_toBottomOf="@+id/et_mbti" />
+        app:layout_constraintTop_toBottomOf="@+id/et_mbti_new" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
