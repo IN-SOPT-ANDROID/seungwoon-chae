@@ -41,19 +41,19 @@ class HomeFragment : Fragment() {
             name = "불면증",
             author = "다이나믹 듀오",
 
-        ),
+            ),
         Repo(
             image = R.drawable.git,
             name = "노땡큐",
             author = "에픽하이",
 
-        ),
+            ),
         Repo(
             image = R.drawable.git,
             name = "trip",
             author = "릴러말즈",
 
-        ),
+            ),
         Repo(
             image = R.drawable.git,
             name = "끝사랑",
@@ -85,13 +85,12 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val adapter = RepoAdapter(requireContext())
         binding.rvRepos.adapter = adapter
-        binding.rvRepos.layoutManager = LinearLayoutManager(context)
         adapter.setRepoList(mockRepoList)
-    }
+    } // 어댑터 설정 및 더미 데이터를 통한 뷰 생성, 서버랑 연결 실습하면 이쪽이 아마 불바다(?)가 될지도?
 
-    fun viewToFirst(){
-            binding.rvRepos.scrollToPosition(0)
-    }
+    fun viewToFirst() {
+        binding.rvRepos.scrollToPosition(0)
+    } // 리사이클러 뷰의 최상단으로 이동
 
     override fun onDestroyView() {
         super.onDestroyView()

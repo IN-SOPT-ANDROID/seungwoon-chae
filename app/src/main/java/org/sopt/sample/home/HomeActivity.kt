@@ -22,11 +22,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportFragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction() // 최초 액티비티에 등장할 fragment는 homeFragment
             .replace(R.id.home_container, homeFragment)
             .commit()
 
-        binding.bnvHome.setOnItemSelectedListener {
+        binding.bnvHome.setOnItemSelectedListener { // fragment 전환을 위한 이벤트리스너
             when (it.itemId) {
                 R.id.nav_home -> {
                     supportFragmentManager.beginTransaction()
@@ -34,20 +34,21 @@ class HomeActivity : AppCompatActivity() {
                         .commit()
                 }
                 /*R.id.nav_gallery -> {
-                    supportFragmentManager.beginTransaction().replace(, galleryFragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.home_container, galleryFragment).commit()
                 }
                 R.id.nav_search -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.layout_nav_bottom, searchFragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.home_container searchFragment).commit()
                 }*/
+                // 구현해야 할 부가 fragment인 gallery와 search
             }
             true
         }
 
-        binding.bnvHome.setOnItemReselectedListener {
+        binding.bnvHome.setOnItemReselectedListener { // 다시 아이템이 선택될 때 발생하는 이벤트리스너
             when (it.itemId) {
                 R.id.nav_home -> {
                     homeFragment.viewToFirst()
-                    // 리사이클러 뷰를 최상단으로 끌어올려야함.
+                    // 리사이클러 뷰를 최상단으로 끌어올리는 함수
                 }
             }
             true
