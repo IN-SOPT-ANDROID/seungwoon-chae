@@ -3,10 +3,9 @@ package org.sopt.sample.home.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.sample.databinding.LayoutGithubRepoBinding
-import org.sopt.sample.databinding.LayoutTextRepoBinding
+import org.sopt.sample.databinding.LayoutTitleBinding
 import org.sopt.sample.home.data.Repo
 import org.w3c.dom.Text
 
@@ -15,7 +14,7 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
     private val GIT_FORMAT = 1 // 현재 뷰 객체가 레포임을 감지하기 위한 변수
     private val inflater by lazy { LayoutInflater.from(context) }
     private var repoList: List<Repo> = emptyList()
-    lateinit var textBinding: LayoutTextRepoBinding
+    lateinit var textBinding: LayoutTitleBinding
     lateinit var gitBinding: LayoutGithubRepoBinding
 
     inner class RepoViewHolder( // 레포 뷰홀더
@@ -28,8 +27,8 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    inner class TextViewHolder( // 텍스트(타이틀) 뷰홀더
-        private val binding: LayoutTextRepoBinding
+    inner class TitleViewHolder( // 텍스트(타이틀) 뷰홀더
+        private val binding: LayoutTitleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Repo) {
             binding.txtName.text = data.name
@@ -38,8 +37,8 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == TEXT_FORMAT) { // 뷰홀더 종류에 따라 바인딩을 구분해서 적용
-            textBinding = LayoutTextRepoBinding.inflate(inflater, parent, false)
-            TextViewHolder(textBinding)
+            textBinding = LayoutTitleBinding.inflate(inflater, parent, false)
+            TitleViewHolder(textBinding)
         } else {
             gitBinding = LayoutGithubRepoBinding.inflate(inflater, parent, false)
             RepoViewHolder(gitBinding)
@@ -53,7 +52,7 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is TextViewHolder) { // 뷰홀더 종류에 따라 바인딩 타입 결정
+        if (holder is TitleViewHolder) { // 뷰홀더 종류에 따라 바인딩 타입 결정
             (holder).onBind(repoList[position])
         } else {
             (holder as RepoViewHolder).onBind(repoList[position])

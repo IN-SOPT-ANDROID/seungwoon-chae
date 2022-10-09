@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import org.sopt.sample.R
 import org.sopt.sample.databinding.FragmentHomeBinding
 import org.sopt.sample.home.adapter.RepoAdapter
@@ -22,51 +24,38 @@ class HomeFragment : Fragment() {
             type = 0
         ),
         Repo(
-            image = R.drawable.git,
             name = "여행",
             author = "볼빨간사춘기"
         ),
         Repo(
-            image = R.drawable.git,
             name = "검정색 하트",
             author = "릴러말즈",
         ),
         Repo(
-            image = R.drawable.git,
             name = "북향",
             author = "다이나믹 듀오",
         ),
         Repo(
-            image = R.drawable.git,
             name = "불면증",
             author = "다이나믹 듀오",
-
-            ),
+        ),
         Repo(
-            image = R.drawable.git,
             name = "노땡큐",
             author = "에픽하이",
-
-            ),
+        ),
         Repo(
-            image = R.drawable.git,
             name = "trip",
             author = "릴러말즈",
-
-            ),
+        ),
         Repo(
-            image = R.drawable.git,
             name = "끝사랑",
             author = "김범수",
         ),
-
         Repo(
-            image = R.drawable.git,
             name = "All I wanna do",
             author = "박재범",
         ),
         Repo(
-            image = R.drawable.git,
             name = "니가 없는 밤",
             author = "비오",
         ),
