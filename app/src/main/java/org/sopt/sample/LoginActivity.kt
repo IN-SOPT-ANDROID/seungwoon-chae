@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import org.sopt.sample.databinding.ActivityLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import org.sopt.sample.home.HomeActivity
+import java.math.BigInteger
 
 class LoginActivity : AppCompatActivity() {
     private var id: String? = null
