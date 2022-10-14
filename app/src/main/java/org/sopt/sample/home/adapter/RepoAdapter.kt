@@ -17,7 +17,7 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
     lateinit var textBinding: LayoutTitleBinding
     lateinit var gitBinding: LayoutGithubRepoBinding
 
-    inner class RepoViewHolder( // 레포 뷰홀더
+    class RepoViewHolder( // 레포 뷰홀더
         private val binding: LayoutGithubRepoBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Repo) {
@@ -27,7 +27,7 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    inner class TitleViewHolder( // 텍스트(타이틀) 뷰홀더
+    class TitleViewHolder( // 텍스트(타이틀) 뷰홀더
         private val binding: LayoutTitleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Repo) {
@@ -46,9 +46,7 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (repoList[position].type == 0) // 뷰홀더 종류 감지
-            TEXT_FORMAT
-        else GIT_FORMAT
+        return repoList[position].type;
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

@@ -18,4 +18,5 @@
         android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/main_menu" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

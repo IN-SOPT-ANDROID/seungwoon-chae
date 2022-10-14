@@ -15,8 +15,8 @@ import org.sopt.sample.R
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val homeFragment = HomeFragment()
-    // private val galleryFragment = GalleryFragment()
-    // private val searchFragment = SearchFragment()
+    private val galleryFragment = GalleryFragment()
+    private val searchFragment = SearchFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +33,12 @@ class HomeActivity : AppCompatActivity() {
                         .replace(R.id.home_container, homeFragment)
                         .commit()
                 }
-                /*R.id.nav_gallery -> {
+                R.id.nav_gallery -> {
                     supportFragmentManager.beginTransaction().replace(R.id.home_container, galleryFragment).commit()
                 }
                 R.id.nav_search -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.home_container searchFragment).commit()
-                }*/
-                // 구현해야 할 부가 fragment인 gallery와 search
+                    supportFragmentManager.beginTransaction().replace(R.id.home_container, searchFragment).commit()
+                }
             }
             true
         }
@@ -48,7 +47,6 @@ class HomeActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> {
                     homeFragment.viewToFirst()
-                    // 리사이클러 뷰를 최상단으로 끌어올리는 함수
                 }
             }
             true
