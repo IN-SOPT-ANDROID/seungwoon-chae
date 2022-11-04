@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import org.sopt.sample.databinding.ActivityLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import org.sopt.sample.home.HomeActivity
-import java.math.BigInteger
 
 class LoginActivity : AppCompatActivity() {
     private var id: String? = null
@@ -42,8 +41,7 @@ class LoginActivity : AppCompatActivity() {
         if (binding.etId.text.toString() == id && binding.etPw.text.toString() == pw) {
             Toast.makeText(this.applicationContext, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show();
             val homeIntent = Intent(this, HomeActivity::class.java)
-            homeIntent.putExtra("homeid", id.toString())
-            homeIntent.putExtra("homembti", mbti.toString())
+            homeIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(homeIntent)
         } else {
             Toast.makeText(this.applicationContext, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();

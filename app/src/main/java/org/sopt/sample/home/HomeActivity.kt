@@ -3,6 +3,7 @@ package org.sopt.sample.home
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.adapters.AdapterViewBindingAdapter.setOnItemSelectedListener
 import androidx.fragment.app.Fragment
@@ -51,5 +52,10 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
+    }
+
+    override fun onBackPressed() { // 홈화면에서 뒤로가기 버튼 누를 시 앱 종료
+
+        finish()
     }
 }
