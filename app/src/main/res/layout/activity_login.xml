@@ -65,6 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="80dp"
         android:orientation="horizontal"
         app:constraint_referenced_ids="bt_login,bt_signup"
         app:flow_horizontalGap="12dp"
