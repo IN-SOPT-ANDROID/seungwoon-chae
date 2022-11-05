@@ -51,7 +51,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginEvent() {
-
         if (binding.etId.text.toString() == id && binding.etPw.text.toString() == pw) {
             MySharedPreferences.setUserId(this, id.toString())
             MySharedPreferences.setUserPw(this, pw.toString())
