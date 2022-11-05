@@ -12,7 +12,7 @@
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/git" />
+        tools:src="@drawable/github" />
 
     <TextView
         android:id="@+id/txt_github_repo_name"

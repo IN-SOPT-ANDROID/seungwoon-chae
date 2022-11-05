@@ -57,10 +57,25 @@ class RepoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
+   /* override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if(payloads.isEmpty()){
+            super.onBindViewHolder(holder, position, payloads)
+        } else {
+            for(payload in payloads) {
+
+            }
+        }
+    }*/
+
     override fun getItemCount() = repoList.size
 
     fun setRepoList(repoList: List<Repo>) {
         this.repoList = repoList.toList() // 원본이 바뀌어도 문제가 생기지 않도록 "얇은 복사" 처리
-        notifyDataSetChanged() // 새로운 데이터셋을 인식시켜 이를 기반으로 다시 리사이클러 뷰를 그리도록 함
+        // notifyDataSetChanged() // 새로운 데이터셋을 인식시켜 이를 기반으로 다시 리사이클러 뷰를 그리도록 함
+        notifyItemRangeChanged(0, repoList.size)
     }
 }
