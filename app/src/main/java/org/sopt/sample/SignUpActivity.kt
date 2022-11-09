@@ -25,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (etIdNew.text.length >= 6 && etIdNew.text.length <= 10) {
                     if (etPwNew.text.length >= 8 && etPwNew.text.length <= 12) {
                         Snackbar.make(root, "회원가입이 완료되었습니다.", Snackbar.LENGTH_SHORT).show()
+                        // 회원가입이 성공한 id와 pw를 서버에 POST로 전달해야 한다.
                         intent.putExtra("id", etIdNew.text.toString())
                         intent.putExtra("pw", etPwNew.text.toString())
                         intent.putExtra("mbti", etMbtiNew.text.toString())

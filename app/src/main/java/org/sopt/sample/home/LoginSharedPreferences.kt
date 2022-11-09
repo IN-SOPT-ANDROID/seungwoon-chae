@@ -3,7 +3,7 @@ package org.sopt.sample.home
 import android.content.Context
 import android.content.SharedPreferences
 
-object MySharedPreferences { // 자동 로그인 기능 구현을 위한 SharePreference 객체, 접근의 편의성을 위해 최상위 객체 object로 선언함
+object LoginSharedPreferences { // 자동 로그인 기능 구현을 위한 SharePreference 객체, 접근의 편의성을 위해 최상위 객체 object로 선언함
     private const val MY_ACCOUNT : String = "account"
 
     fun setUserId(context: Context, input: String) { // 유저 아이디 저장
