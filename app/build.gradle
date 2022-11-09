@@ -8,6 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "org.sopt.sample"
         minSdk 26
         targetSdk 32
