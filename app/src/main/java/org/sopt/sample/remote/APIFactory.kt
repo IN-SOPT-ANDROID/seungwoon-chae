@@ -19,5 +19,6 @@ object APIFactory {
 }
 
 object ServicePool { // 최상위 객체, 일단 생성하면 어디서든 접근할 수 있기에 단 한 번의 생성으로 모든 것을 처리할 수 있음.
-    val AuthService = APIFactory.create<AuthService>()
+    val loginService = APIFactory.create<LoginService>()
+    val singupService = APIFactory.create<SignUpService>()
 }

@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface AuthService {
+interface LoginService {
     @POST("api/user/signin")
     fun login(
         @Body request : RequestLoginDTO
