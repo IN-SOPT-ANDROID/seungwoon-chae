@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_pw_title_new" />
 
     <TextView
-        android:id="@+id/txt_mbti_title_new"
+        android:id="@+id/txt_email_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -78,7 +78,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:hint="email을 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_mbti_title_new" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_email_title_new" />
 
     <Button
         android:id="@+id/bt_signupend"

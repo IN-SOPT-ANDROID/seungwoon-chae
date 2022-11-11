@@ -18,7 +18,7 @@ import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
-    val loginservice = ServicePool.loginService
+    private val loginservice = ServicePool.loginService
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,24 +34,14 @@ class LoginActivity : AppCompatActivity() {
             && !(LoginSharedPreferences.getUserPw(this).isNullOrBlank())
         ) {
             Toast.makeText(this.applicationContext, "자동 로그인 되었습니다", Toast.LENGTH_SHORT).show();
-            val homeIntent = Intent(this, HomeActivity::class.java)
+            val homeIntent = Intent(this@LoginActivity, HomeActivity::class.java)
+            homeIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // 로그인 성공 시 직전에 발생한 회원가입/로그인 acitivity 삭제처리
             startActivity(homeIntent)
         }
     }
 
     private fun loginEvent() {
-        val homeIntent = Intent(this, HomeActivity::class.java)
         binding.btLogin.setOnClickListener() {
-            /*if (binding.etId.text.toString() == id && binding.etPw.text.toString() == pw) { // 로그인 성공 여부를 검증하는 과정 필요
-                LoginSharedPreferences.setUserId(this, id.toString())
-                LoginSharedPreferences.setUserPw(this, pw.toString())
-                Toast.makeText(this.applicationContext, "로그인에 성공했습니다", Toast.LENGTH_SHORT).show();
-                val homeIntent = Intent(this, HomeActivity::class.java)
-                homeIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // 로그인 성공 시 직전에 발생한 회원가입/로그인 acitivity 삭제처리
-                startActivity(homeIntent)
-            } else {
-                Toast.makeText(this.applicationContext, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
-            }  */
             loginservice.login(
                 RequestLoginDTO(
                     binding.etEmail.text.toString(),
@@ -62,10 +52,13 @@ class LoginActivity : AppCompatActivity() {
                     call: Call<ResponseLoginDTO>,
                     response: Response<ResponseLoginDTO>
                 ) {
-                    Log.e("signing", "error1")
-                    if(response.isSuccessful) {
-                        // homeIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // 로그인 성공 시 직전에 발생한 회원가입/로그인 acitivity 삭제처리
-                        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                    if(response.isSuccessful) { // 서버와 연결된 상태에서 로그인 성공
+                        val homeIntent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        LoginSharedPreferences.setUserId(this@LoginActivity, binding.etEmail.text.toString())
+                        LoginSharedPreferences.setUserPw(this@LoginActivity, binding.etPw.text.toString()) // 자동 로그인 설정
+                        homeIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // 로그인 성공 시 직전에 발생한 회원가입/로그인 acitivity 삭제처리
+                        Toast.makeText(this@LoginActivity, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
+                        startActivity(homeIntent)
                     }
                 }
 
@@ -74,11 +67,9 @@ class LoginActivity : AppCompatActivity() {
                 }
             })
         }
-        LoginSharedPreferences.setUserId(this, binding.etEmail.text.toString())
-        LoginSharedPreferences.setUserPw(this, binding.etPw.text.toString()) // 자동 로그인 설정
     }
 
-    private fun signupEvent() {
+    private fun signupEvent() { // 회원가입 Activity로 이동
         binding.btSignup.setOnClickListener() {
             val signupIntent = Intent(this, SignUpActivity::class.java)
             startActivity(signupIntent)
