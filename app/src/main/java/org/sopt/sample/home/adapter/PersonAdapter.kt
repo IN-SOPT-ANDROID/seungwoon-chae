@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.sopt.sample.databinding.LayoutGithubRepoBinding
 import org.sopt.sample.remote.Person
-import org.sopt.sample.remote.ResponsePersonDTO
 
-class RepoAdapter(context: Context) : RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
+class PersonAdapter(Item: List<Person>, context: Context) : RecyclerView.Adapter<PersonAdapter.RepoViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
     private var repoList: List<Person> = emptyList()
     lateinit var gitBinding: LayoutGithubRepoBinding
