@@ -1,11 +1,14 @@
 package org.sopt.sample.home.data
 
 import androidx.annotation.DrawableRes
+import kotlinx.serialization.SerialName
 import org.sopt.sample.R
 
 data class Repo(
-    @DrawableRes val image: Int = R.drawable.github,
-    val name: String = "제목",
-    val author: String = "작성자",
-    val type: Int = 1 // 기본값 1(깃레포를 의미)
+    @SerialName("email")
+    val email: String,
+    @SerialName("first_name")
+    val first_name: String,
+    @SerialName("avatar") // 이미지
+    val image: String
 )
