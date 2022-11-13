@@ -31,16 +31,6 @@ class SignUpActivity : AppCompatActivity() {
         clickEvent()
     }
 
-    // 3개의 input의 공백 여부를 판단하는 함수
-    private fun inputNotEmpty(): Boolean {
-        with(binding){
-            if(!etIdNew.text.toString().isBlank() && !etPwNew.text.toString().isBlank() && !etEmailNew.text.toString().isBlank()){
-                return true
-            }
-            return false
-        }
-    }
-
     // 3개의 input이 모두 공백아 아닌 것이 확인되면 버튼 활성화
     private fun checkAllInputActivated(){
         with(binding)
@@ -51,7 +41,7 @@ class SignUpActivity : AppCompatActivity() {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    btSignupend.isEnabled = inputNotEmpty()
+                    btSignupend.isEnabled = !etIdNew.text.toString().isBlank() && !etPwNew.text.toString().isBlank() && !etEmailNew.text.toString().isBlank()
                 }
             })
             etIdNew.addTextChangedListener(object : TextWatcher {
@@ -60,7 +50,7 @@ class SignUpActivity : AppCompatActivity() {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    btSignupend.isEnabled = inputNotEmpty()
+                    btSignupend.isEnabled = !etIdNew.text.toString().isBlank() && !etPwNew.text.toString().isBlank() && !etEmailNew.text.toString().isBlank()
                 }
             })
             etEmailNew.addTextChangedListener(object : TextWatcher {
@@ -69,7 +59,7 @@ class SignUpActivity : AppCompatActivity() {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    btSignupend.isEnabled = inputNotEmpty()
+                    btSignupend.isEnabled = !etIdNew.text.toString().isBlank() && !etPwNew.text.toString().isBlank() && !etEmailNew.text.toString().isBlank()
                 }
             })
         }
