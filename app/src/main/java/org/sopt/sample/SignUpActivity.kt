@@ -2,12 +2,7 @@ package org.sopt.sample
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
-import android.widget.EditText
-import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import org.sopt.sample.databinding.ActivityLoginBinding
 import com.google.android.material.snackbar.Snackbar
@@ -15,18 +10,26 @@ import org.sopt.sample.databinding.ActivitySignupBinding
 import org.sopt.sample.home.HomeActivity
 import org.sopt.sample.home.LoginSharedPreferences
 import org.sopt.sample.remote.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import org.sopt.sample.viewmodel.SignupViewModel
 
 class SignUpActivity : AppCompatActivity() {
-    private val signUpService = ServicePool.singupService
+    private val viewModel by viewModels<SignupViewModel>()
     private lateinit var binding: ActivitySignupBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btSignupend.isEnabled = false
+
+        viewModel.successSignup.observe(this){ success ->
+            if(success) {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+        }
+
+        viewModel.errorMessage.observe(this){ it ->
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+        }
 
         // checkAllInputActivated()
         // clickEvent()

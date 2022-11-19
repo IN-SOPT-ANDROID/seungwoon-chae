@@ -1,6 +1,7 @@
-package org.sopt.sample
+package org.sopt.sample.viewmodel
 
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -38,6 +39,7 @@ class LoginViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     _successLogin.value = true
                     _loginResult.value = response.body()
+                    Log.d(_loginResult.value.toString(), "hello")
                 } else { // 서버랑 연결은 되었으나 여러 문제가 발생 (400, 500 등)
                     _successLogin.value = false
                     _errorMessage.value = response.message()
