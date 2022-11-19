@@ -27,12 +27,13 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btSignupend.isEnabled = false
-        checkAllInputActivated()
-        clickEvent()
+
+        // checkAllInputActivated()
+        // clickEvent()
     }
 
     // 3개의 input이 모두 공백아 아닌 것이 확인되면 버튼 활성화
-    private fun checkAllInputActivated(){
+    /*private fun checkAllInputActivated(){
         with(binding)
         {
             etPwNew.addTextChangedListener(object : TextWatcher {
@@ -105,6 +106,6 @@ class SignUpActivity : AppCompatActivity() {
                 })
             }
         }
-    }
+    }*/
 }
 
