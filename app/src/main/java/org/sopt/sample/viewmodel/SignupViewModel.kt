@@ -1,11 +1,7 @@
 package org.sopt.sample.viewmodel
 
-import android.content.Intent
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
-import androidx.databinding.BaseObservable
+import android.util.Log
 import androidx.lifecycle.*
-import org.sopt.sample.LoginActivity
 import org.sopt.sample.remote.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,10 +26,12 @@ class SignupViewModel: ViewModel() {
     val inputId = MutableLiveData<String>().apply { value = "" }
 
     val inputEmailcheck : LiveData<Boolean> = Transformations.map(inputEmail) { email ->
+        Log.d("hi", email.toString())
         validEmailcheck(email)
     } // map을 활용해 실시간으로 변하는 input을 검증하여 Boolean 변수를 반환
 
     val inputPwcheck : LiveData<Boolean> = Transformations.map(inputPw) { pw ->
+        Log.d("hi", pw.toString())
         validPwcheck(pw)
     }
 

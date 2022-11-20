@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="vm"
@@ -7,9 +7,10 @@
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="28dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txt_signup"
@@ -27,105 +28,106 @@
         android:id="@+id/txt_email_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
         android:text="email"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_signup" />
 
-    <EditText
-        android:id="@+id/et_email_new"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/txt_email_new"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="20dp"
-        android:text="@={vm.inputEmail}"
-        android:hint="email을 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_email_title_new" />
-
-    <TextView
-        android:id="@+id/txt_email_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="4dp"
-        android:text="이메일 형식이 올바르지 않습니다."
-        android:textColor="@color/red"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email_new" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_email_title_new">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={vm.inputEmail}"
+            android:hint="이메일 입력"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/txt_pw_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
         android:text="비밀번호"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_email_error" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_email_new" />
 
-    <EditText
-        android:id="@+id/et_pw_new"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/txt_pw_new"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="20dp"
-        android:text="@={vm.inputPw}"
-        android:hint="비밀번호를 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_pw_title_new" />
-
-    <TextView
-        android:id="@+id/txt_pw_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/pw_error"
-        android:textColor="@color/red"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pw_new" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_pw_title_new">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_pw_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={vm.inputPw}"
+            android:hint="비밀번호 입력"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txt_title_new"
+        android:id="@+id/txt_id_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="24dp"
         android:text="ID"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_pw_error" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_pw_new" />
 
-    <EditText
-        android:id="@+id/et_id_new"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/txt_id_new"
+        android:visibility="visible"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="20dp"
-        android:text="@={vm.inputId}"
-        android:hint="ID를 입력하세요"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title_new" />
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_id_title_new">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_id_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={vm.inputId}"
+            android:hint="ID 입력"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/bt_signupend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:enabled="false"
         android:text="회원가입 완료"
-        app:layout_constraintTop_toBottomOf="@+id/et_id_new" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_id_new" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

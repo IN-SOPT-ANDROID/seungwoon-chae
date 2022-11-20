@@ -4,10 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.sopt.sample.home.adapter.PersonAdapter
-import org.sopt.sample.remote.Person
 import org.sopt.sample.remote.PersonServicePool
-import org.sopt.sample.remote.ResponseLoginDTO
 import org.sopt.sample.remote.ResponsePersonDTO
 import retrofit2.Call
 import retrofit2.Callback

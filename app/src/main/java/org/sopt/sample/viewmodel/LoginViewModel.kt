@@ -1,13 +1,9 @@
 package org.sopt.sample.viewmodel
 
-import android.content.Intent
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.sopt.sample.home.HomeActivity
-import org.sopt.sample.home.LoginSharedPreferences
 import org.sopt.sample.remote.RequestLoginDTO
 import org.sopt.sample.remote.ResponseLoginDTO
 import org.sopt.sample.remote.ServicePool

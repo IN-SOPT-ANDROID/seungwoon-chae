@@ -1,8 +1,6 @@
 package org.sopt.sample.home.data
 
-import androidx.annotation.DrawableRes
 import kotlinx.serialization.SerialName
-import org.sopt.sample.R
 
 data class Repo(
     @SerialName("email")

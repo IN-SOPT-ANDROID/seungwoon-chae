@@ -1,9 +1,7 @@
 package org.sopt.sample.home
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import org.sopt.sample.databinding.ActivityHomeBinding
 import org.sopt.sample.R
 
