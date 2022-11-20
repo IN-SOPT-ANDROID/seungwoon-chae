@@ -24,6 +24,9 @@ class SignupViewModel: ViewModel() {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
+
+
+
     fun signup(email: String, password: String, name: String){
         signupService.signup(
             RequestSignUpDTO(email, password, name)
