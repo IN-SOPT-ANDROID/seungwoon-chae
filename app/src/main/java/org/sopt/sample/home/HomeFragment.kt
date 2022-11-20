@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.progressBar.isVisible = true
+        binding.progressBar.isVisible = true // 로딩뷰 활성화
         homeViewmodel.getData()
         homeViewmodel.successGet.observe(viewLifecycleOwner){ success ->
             if(success){
@@ -43,11 +43,10 @@ class HomeFragment : Fragment() {
                     }
                 }
                 binding.rvRepos.adapter = adapter
-                binding.progressBar.isVisible = false
             }
+            binding.progressBar.isVisible = false // 서버통신 완료 -> 로딩뷰 비활성화
         }
     }
-    // 리사이클러 뷰를 빈 상태로 미리 초기화해두는 것도 방법 중 하나다.
 
     fun viewToFirst() {
         binding.rvRepos.scrollToPosition(0)

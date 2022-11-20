@@ -41,11 +41,8 @@ class HomeViewModel: ViewModel() {
                     }
                 }
                 if (response.isSuccessful) {
-                    Log.d("success", "success")
                     _getResult.value = response.body()
-                    Log.d("output", response.body().toString())
                     _successGet.value = true
-                    //
                 }
             }
 

@@ -3,6 +3,7 @@ package org.sopt.sample.home
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import org.sopt.sample.databinding.ActivityHomeBinding
 import org.sopt.sample.R
 
@@ -23,7 +24,6 @@ class HomeActivity : AppCompatActivity() {
         binding.bnvHome.setOnItemSelectedListener { // fragment 전환을 위한 이벤트리스너
             when (it.itemId) {
                 R.id.nav_home -> {
-                    Log.d("홈화면 진입", "pass1")
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.home_container, homeFragment)
                         .commit()
