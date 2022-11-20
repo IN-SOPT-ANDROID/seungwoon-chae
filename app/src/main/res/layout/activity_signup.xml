@@ -42,7 +42,6 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:text="@={vm.inputEmail}"
-        app:backgroundTint="@color/blue"
         android:hint="email을 입력하세요"
         app:layout_constraintTop_toBottomOf="@+id/txt_email_title_new" />
 
@@ -56,7 +55,7 @@
         android:textColor="@color/red"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_email_new" />
 
@@ -92,6 +91,7 @@
         android:textColor="@color/red"
         android:textSize="10sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pw_new" />
 
@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
+        android:enabled="false"
         android:text="회원가입 완료"
         app:layout_constraintTop_toBottomOf="@+id/et_id_new" />
 
