@@ -3,10 +3,12 @@ package org.sopt.sample.home.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.sopt.sample.databinding.LayoutGithubRepoBinding
 import org.sopt.sample.remote.Person
+import org.sopt.sample.remote.ResponsePersonDTO
 
 class PersonAdapter(Item: List<Person>, context: Context) : RecyclerView.Adapter<PersonAdapter.RepoViewHolder>() {
     private val inflater by lazy { LayoutInflater.from(context) }
