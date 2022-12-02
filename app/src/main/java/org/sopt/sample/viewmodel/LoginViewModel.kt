@@ -1,12 +1,9 @@
-package org.sopt.sample
+package org.sopt.sample.viewmodel
 
-import android.content.Intent
-import android.widget.Toast
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.sopt.sample.home.HomeActivity
-import org.sopt.sample.home.LoginSharedPreferences
 import org.sopt.sample.remote.RequestLoginDTO
 import org.sopt.sample.remote.ResponseLoginDTO
 import org.sopt.sample.remote.ServicePool
@@ -38,6 +35,7 @@ class LoginViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     _successLogin.value = true
                     _loginResult.value = response.body()
+                    Log.d(_loginResult.value.toString(), "hello")
                 } else { // 서버랑 연결은 되었으나 여러 문제가 발생 (400, 500 등)
                     _successLogin.value = false
                     _errorMessage.value = response.message()

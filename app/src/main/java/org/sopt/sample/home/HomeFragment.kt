@@ -6,16 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import org.sopt.sample.databinding.FragmentHomeBinding
 import org.sopt.sample.home.adapter.PersonAdapter
-import org.sopt.sample.remote.PersonServicePool
-import org.sopt.sample.remote.ResponsePersonDTO
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import org.sopt.sample.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
-    private val personService = PersonServicePool.personService
+    private val homeViewmodel by viewModels<HomeViewModel>()
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding
         get() = requireNotNull(_binding) { "바인딩 객체 생성이 필요합니다." }
@@ -31,37 +29,23 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // 서버통신 성공 -> 데이터 들고와서 fragment 내 RecyclerView에 뿌리기
-        personService.getData().enqueue(object : Callback<ResponsePersonDTO> {
-            override fun onResponse(
-                call: Call<ResponsePersonDTO>,
-                response: Response<ResponsePersonDTO>
-            ) {
-                when (response.code()) {
-                    400 -> {
-                        Log.e("400", "error")
-                    }
-                    500 -> {
-                        Log.e("500", "error")
-                    }
-                }
-                if (response.isSuccessful) {
-                    Log.e("success", "success")
-                    // 서버에서 데이터 전송받음 <현재 성공>
-                    val adapter = response.body()?.let {
-                        context?.let { it1 ->
-                            PersonAdapter(it.data, it1).apply{
-                                setRepoList(it.data)
-                            }
+        binding.progressBar.isVisible = true // 로딩뷰 활성화
+        homeViewmodel.getData()
+        homeViewmodel.successGet.observe(viewLifecycleOwner){ success ->
+            if(success){
+                Log.d(homeViewmodel.getResult.value?.data.toString(), "data")
+                val adapter = context?.let { it1 ->
+                    homeViewmodel.getResult.value?.let {
+                        PersonAdapter(homeViewmodel.getResult.value!!.data, it1).apply {
+                            Log.d(homeViewmodel.getResult.value!!.toString(), "data")
+                            setRepoList(homeViewmodel.getResult.value!!.data)
                         }
                     }
-                    binding.rvRepos.adapter = adapter
                 }
+                binding.rvRepos.adapter = adapter
             }
-            override fun onFailure(call: Call<ResponsePersonDTO>, t: Throwable) {
-                Log.e("server fail", "${t.message.toString()}")
-            }
-        })
+            binding.progressBar.isVisible = false // 서버통신 완료 -> 로딩뷰 비활성화
+        }
     }
 
     fun viewToFirst() {

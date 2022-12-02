@@ -3,8 +3,6 @@ package org.sopt.sample.home
 import android.content.Context
 import android.content.SharedPreferences
 import org.sopt.sample.LoginActivity
-import org.sopt.sample.remote.ResponseLoginDTO
-import retrofit2.Callback
 
 object LoginSharedPreferences { // 자동 로그인 기능 구현을 위한 SharePreference 객체, 접근의 편의성을 위해 최상위 객체 object로 선언함
     private const val MY_ACCOUNT : String = "account"
