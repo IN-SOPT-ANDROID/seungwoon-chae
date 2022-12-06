@@ -19,6 +19,8 @@ class HomeActivity : AppCompatActivity() {
             .replace(R.id.home_container, homeFragment)
             .commit()
 
+
+
         binding.bnvHome.setOnItemSelectedListener { // fragment 전환을 위한 이벤트리스너
             when (it.itemId) {
                 R.id.nav_home -> {

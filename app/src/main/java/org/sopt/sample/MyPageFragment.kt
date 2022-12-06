@@ -1,4 +1,4 @@
-package org.sopt.sample.home
+package org.sopt.sample
 
 import android.os.Bundle
 import android.util.Log
@@ -49,6 +49,4 @@ class MyPageFragment: Fragment() {
             pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
         }
     }
-
-
 }
