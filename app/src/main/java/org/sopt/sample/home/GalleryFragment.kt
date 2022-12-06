@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import org.sopt.sample.R
 import org.sopt.sample.databinding.FragmentGalleryBinding
-import org.sopt.sample.home.adapter.GalleryAdapter
+import org.sopt.sample.home.adapter.MusicAdapter
 
 class GalleryFragment : Fragment() {
     private var _binding: FragmentGalleryBinding? = null
@@ -24,13 +24,5 @@ class GalleryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.vpGallery.adapter = GalleryAdapter().apply {
-            setItems(
-                listOf(
-                    R.drawable.github,
-                    R.drawable.github
-                )
-            )
-        }
     }
 }

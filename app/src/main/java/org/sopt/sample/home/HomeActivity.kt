@@ -8,7 +8,7 @@ import org.sopt.sample.R
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val homeFragment = HomeFragment()
-    private val galleryFragment = GalleryFragment()
+    private val galleryFragment = MyPageFragment()
     private val searchFragment = SearchFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
