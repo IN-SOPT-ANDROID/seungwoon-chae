@@ -21,7 +21,7 @@ object musicAPIFactory {
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl("http://3.34.53.11:8080/")
-            //.addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .client(client)
             .build()
     }

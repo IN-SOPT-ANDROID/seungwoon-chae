@@ -23,9 +23,8 @@ class MusicViewModel : ViewModel() {
     val errorMessage: LiveData<String> = _errorMessage
 
 
-
     fun getData() {
-        musicService.getData().enqueue(object: Callback<ResponseMusicDTO> {
+        musicService.getData().enqueue(object : Callback<ResponseMusicDTO> {
             override fun onResponse(
                 call: Call<ResponseMusicDTO>,
                 response: Response<ResponseMusicDTO>
@@ -53,7 +52,6 @@ class MusicViewModel : ViewModel() {
             }
         })
     }
-
 
 
 }

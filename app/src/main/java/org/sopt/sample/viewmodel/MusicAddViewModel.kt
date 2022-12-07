@@ -24,11 +24,11 @@ class MusicAddViewModel : ViewModel() {
         _image.value = requestBody
     }
 
-    fun postMusic(map: HashMap<String, RequestBody>){
+    fun postMusic(map: HashMap<String, RequestBody>) {
         musicAddService.postMusic(
             image.value!!.toFormData(),
             map
-        ).enqueue(object: Callback<ResponseMusicAddDTO> {
+        ).enqueue(object : Callback<ResponseMusicAddDTO> {
             override fun onResponse(
                 call: Call<ResponseMusicAddDTO>,
                 response: Response<ResponseMusicAddDTO>
