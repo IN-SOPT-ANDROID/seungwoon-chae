@@ -4,15 +4,15 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.sopt.sample.remote.MusicServicePool
-import org.sopt.sample.remote.PersonServicePool
-import org.sopt.sample.remote.ResponseMusicDTO
+import okhttp3.RequestBody
+import org.sopt.sample.remote.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MusicViewModel : ViewModel() {
     private val musicService = MusicServicePool.musicService
+    private val musicAddService = MusicServicePool.musicAddService
 
     private val _getResult: MutableLiveData<ResponseMusicDTO> = MutableLiveData()
     val getResult: LiveData<ResponseMusicDTO>
@@ -21,6 +21,8 @@ class MusicViewModel : ViewModel() {
     val successGet: LiveData<Boolean> = _successGet
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
+
+
 
     fun getData() {
         musicService.getData().enqueue(object: Callback<ResponseMusicDTO> {
@@ -51,4 +53,7 @@ class MusicViewModel : ViewModel() {
             }
         })
     }
+
+
+
 }

@@ -1,5 +1,3 @@
-package org.sopt.sample.remote
-
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore

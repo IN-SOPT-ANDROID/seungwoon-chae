@@ -17,10 +17,11 @@ object musicAPIFactory {
                 }
             ).build()
     }
+
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl("http://3.34.53.11:8080/")
-            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            //.addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .client(client)
             .build()
     }
@@ -32,5 +33,5 @@ object musicAPIFactory {
 
 object MusicServicePool { // 최상위 객체, 일단 생성하면 어디서든 접근할 수 있기에 단 한 번의 생성으로 모든 것을 처리할 수 있음.
     val musicService = musicAPIFactory.create<MusicService>()
-    // val musicAddService = APIFactory.create<musicAddService>()
+    val musicAddService = musicAPIFactory.create<MusicAddService>()
 }
