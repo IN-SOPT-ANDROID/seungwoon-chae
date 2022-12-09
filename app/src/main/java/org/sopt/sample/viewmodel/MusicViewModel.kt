@@ -12,7 +12,6 @@ import retrofit2.Response
 
 class MusicViewModel : ViewModel() {
     private val musicService = MusicServicePool.musicService
-    private val musicAddService = MusicServicePool.musicAddService
 
     private val _getResult: MutableLiveData<ResponseMusicDTO> = MutableLiveData()
     val getResult: LiveData<ResponseMusicDTO>

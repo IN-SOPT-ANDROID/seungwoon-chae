@@ -57,10 +57,8 @@ class MyPageFragment : Fragment() {
         ActivityResultContracts.PickVisualMedia()
     ) {
         if (it != null) {
-            Log.e("hello", it.toString())
             binding.imgSample.load(it)
             viewModel.setRequestBody(ContentUriRequestBody(requireContext(), it))
-            Log.e("uris ->: ", viewModel.image.toString())
         } else {
             Log.d("PhotoPicker", "No media selected")
         }
@@ -75,5 +73,10 @@ class MyPageFragment : Fragment() {
         return binding.root
     }
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }

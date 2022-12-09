@@ -35,11 +35,9 @@ class SearchFragment : Fragment() { // 시간이 촉박하여 fragment 이름 �
         musicViewModel.getData()
         musicViewModel.successGet.observe(viewLifecycleOwner){ it ->
             if(it){
-                Log.d(musicViewModel.getResult.value?.data.toString(), "data")
                 val adapter = context?.let { it1 ->
                     musicViewModel.getResult.value?.let {
                         MusicAdapter(musicViewModel.getResult.value!!.data, it1).apply {
-                            Log.d(musicViewModel.getResult.value!!.toString(), "data")
                             setRepoList(musicViewModel.getResult.value!!.data)
                         }
                     }

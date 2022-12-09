@@ -35,8 +35,6 @@ class MusicAddViewModel : ViewModel() {
             ) {
                 when (response.code()) {
                     400 -> {
-                        Log.e("map: ", map["singer"].toString())
-                        Log.e("map: ", map["title"].toString())
                         Log.e("400", "error")
                     }
                     500 -> {
