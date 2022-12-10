@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
-object APIFactory {
+object musicAPIFactory {
     private val client by lazy {
         OkHttpClient.Builder()
             // .addInterceptor(AuthInterceptor())
@@ -17,9 +17,10 @@ object APIFactory {
                 }
             ).build()
     }
+
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://3.39.169.52:3000/")
+            .baseUrl("http://3.34.53.11:8080/")
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .client(client)
             .build()
@@ -30,7 +31,7 @@ object APIFactory {
     // 최소화시키는것이 바람직하다.
 }
 
-object ServicePool { // 최상위 객체, 일단 생성하면 어디서든 접근할 수 있기에 단 한 번의 생성으로 모든 것을 처리할 수 있음.
-    val loginService = APIFactory.create<LoginService>()
-    val singupService = APIFactory.create<SignUpService>()
+object MusicServicePool { // 최상위 객체, 일단 생성하면 어디서든 접근할 수 있기에 단 한 번의 생성으로 모든 것을 처리할 수 있음.
+    val musicService = musicAPIFactory.create<MusicService>()
+    val musicAddService = musicAPIFactory.create<MusicAddService>()
 }

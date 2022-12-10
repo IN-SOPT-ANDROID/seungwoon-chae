@@ -24,6 +24,7 @@ object PersonAPIFactory {
             .client(client)
             .build()
     }
+
     inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
 }
 

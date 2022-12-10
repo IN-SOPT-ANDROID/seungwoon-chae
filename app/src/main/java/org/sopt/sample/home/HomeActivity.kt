@@ -8,7 +8,7 @@ import org.sopt.sample.R
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val homeFragment = HomeFragment()
-    private val galleryFragment = GalleryFragment()
+    private val galleryFragment = MyPageFragment()
     private val searchFragment = SearchFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +18,8 @@ class HomeActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction() // 최초 액티비티에 등장할 fragment는 homeFragment
             .replace(R.id.home_container, homeFragment)
             .commit()
+
+
 
         binding.bnvHome.setOnItemSelectedListener { // fragment 전환을 위한 이벤트리스너
             when (it.itemId) {
